@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 BRANCH=$(echo $GITHUB_REF | rev | cut -d\/ -f1 | rev)
 echo "deploy -var-file $LEVANT_VAR_FILE $NOMAD_JOB"
