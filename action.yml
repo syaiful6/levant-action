@@ -13,6 +13,16 @@ inputs:
   var-file:
     description: 'Path to file containing user variables used when rendering the job template'
     required: false
+  ssh-tunnel-private-key:
+    description: 'Setup tunnel before deploying nomad'
+    required: false
+  ssh-tunnel-ip:
+    description: 'Server to establish ssh coonection'
+    required: false
+  ssh-tunnel-nomad-ip:
+    description: 'This is the IP address of Nomad server running, if it listen to specific network interface'
+    required: false
+    default: '127.0.0.1'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -21,3 +31,6 @@ runs:
     NOMAD_ADDR: ${{ inputs.address }}
     NOMAD_JOB: ${{ inputs.job }}
     LEVANT_VAR_FILE: ${{ inputs.var-file }}
+    SSH_PRIVATE_KEY: ${{ inputs.ssh-tunnel-private-key }}
+    NOMAD_IP_SERVER: ${{ inputs.ssh-tunnel-ip }}
+    NOMAD_IP_ADDR: ${{ inputs.ssh-tunnel-nomad-ip }}
