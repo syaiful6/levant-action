@@ -20,4 +20,4 @@ runs:
     NOMAD_TOKEN: ${{ inputs.token }}
     NOMAD_ADDR: ${{ inputs.address }}
     NOMAD_JOB: ${{ inputs.job }}
-    Lhttps://github.com/hashicorp/nomadEVANT_VAR_FILE: ${{ inputs.var-file }}
+    LEVANT_VAR_FILE: ${{ inputs.var-file }}
