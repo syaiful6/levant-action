@@ -9,12 +9,6 @@ RUN set -ex; \
     && apt-get install -y --no-install-recommends \
     openssh-client
 
-RUN set -ex; \
-    groupadd --gid 1000 levant && \
-    useradd --uid 1000 --gid levant --shell /bin/bash --create-home levant
-
 COPY entrypoint.sh /github-action-entrypoint.sh
-
-USER levant
 
 ENTRYPOINT ["/github-action-entrypoint.sh"]
