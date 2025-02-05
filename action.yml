@@ -1,0 +1,23 @@
+name: 'Levant Deploy'
+description: 'Deploy nomad application with levant'
+inputs:
+  token:
+    description: 'Token used to authenticate with a nomad server'
+    required: false
+  address:
+    description: 'Address of the nomad server'
+    required: true
+  job:
+    description: 'Path to the nomad job file'
+    required: true
+  var-file:
+    description: 'Path to file containing user variables used when rendering the job template'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    NOMAD_TOKEN: ${{ inputs.token }}
+    NOMAD_ADDR: ${{ inputs.address }}
+    NOMAD_JOB: ${{ inputs.job }}
+    Lhttps://github.com/hashicorp/nomadEVANT_VAR_FILE: ${{ inputs.var-file }}
